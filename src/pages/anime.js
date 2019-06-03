@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Button } from 'react-bootstrap';
 import Navbar from '../components/navbar/navbar';
 
 class Anime extends Component {
@@ -13,7 +12,6 @@ class Anime extends Component {
             <div>
                 <Navbar/>
                 Anime
-                <Button>Text Here</Button>
             </div>
         )
     }
