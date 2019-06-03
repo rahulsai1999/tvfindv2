@@ -1,3 +1,11 @@
+.nav-logo{
+    text-align: center;
+}
+
+.nav-elements{
+    text-align: center;
+}
+
 .nav-elements a
 {
     margin: 5px;

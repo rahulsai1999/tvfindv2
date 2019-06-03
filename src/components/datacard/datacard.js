@@ -8,13 +8,22 @@ class DataCard extends Component {
     }
 
     render() {
-        const {data}=this.props;
+        const { data } = this.props;
         return (
-            <div>
-                <p>{data.title}</p>
+            <div className="datacard">
+                <div className="row">
+                    <div className="col">
+                        <img className="datacard-img" alt="poster" src={data.images.poster}></img>
+                    </div>
+                    <div className="col">
+                        <div className="row"><h5>{data.title}</h5></div>
+                        <div className="row"><h6>{data.year}</h6></div>
+                    </div>
+                </div>
             </div>
         )
     }
 }
 
 export default DataCard;
+

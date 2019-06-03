@@ -12,12 +12,14 @@ import Movie from './pages/movie';
 function App() {
   return (
     <div className="App">
-      <Router>
-        <Route path="/" exact component={Home}></Route>
-        <Route path="/anime" component={Anime}></Route>
-        <Route path="/tv" component={Tv}></Route>
-        <Route path="/movie" component={Movie}></Route>
-      </Router>
+      <Container>
+        <Router>
+          <Route path="/" exact component={Home}></Route>
+          <Route path="/anime" component={Anime}></Route>
+          <Route path="/tv" component={Tv}></Route>
+          <Route path="/movie" component={Movie}></Route>
+        </Router>
+      </Container>
     </div>
 
   );

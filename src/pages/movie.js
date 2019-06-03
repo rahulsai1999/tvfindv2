@@ -27,9 +27,9 @@ class Movie extends Component {
         else {
             const { data } = this.state;
             return (
-                <div>
+                <div className="row">
                     {data.map((item)=>{
-                        return <DataCard data={item}/>
+                        return (<div className="col-3"><DataCard data={item}/></div>)
                     })}
                 </div>
             )
@@ -40,7 +40,7 @@ class Movie extends Component {
         return (
             <div>
                 <Navbar />
-                <h1>Movie</h1>
+                <h1 style={{textAlign:'center'}}>Movie</h1>
                 <SearchBar />
                 <div className="container">
                     {this.isLoadingorComponent()}

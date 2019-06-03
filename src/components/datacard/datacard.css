@@ -1,0 +1,9 @@
+.datacard{
+    border: 0.5px solid white;
+    padding: 2%;
+    margin: 3%;
+}
+
+.datacard-img{
+    width: 100%;
+}
