@@ -1,5 +1,6 @@
 import React from 'react';
-import {BrowserRouter as Router,Route} from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Container } from 'react-bootstrap';
 import './App.css';
 
 //pages
@@ -10,16 +11,15 @@ import Movie from './pages/movie';
 
 function App() {
   return (
-    <Router>
     <div className="App">
-        <p>
-          <Route path="/" exact component={Home}></Route>
-          <Route path="/anime" component={Anime}></Route>
-          <Route path="/tv" component={Tv}></Route>
-          <Route path="/movie" component={Movie}></Route>
-        </p>
+      <Router>
+        <Route path="/" exact component={Home}></Route>
+        <Route path="/anime" component={Anime}></Route>
+        <Route path="/tv" component={Tv}></Route>
+        <Route path="/movie" component={Movie}></Route>
+      </Router>
     </div>
-    </Router>
+
   );
 }
 

@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
-import Navbar from '../components/navbar/navbar';
+import './datacard.css'
 
-class Home extends Component {
+class DataCard extends Component {
     constructor() {
         super();
         this.state = {}
     }
 
     render() {
+        const {data}=this.props;
         return (
             <div>
-                <Navbar/>
-                <h1>Welcome Home</h1>
+                <p>{data.title}</p>
             </div>
         )
     }
 }
 
-export default Home;
+export default DataCard;

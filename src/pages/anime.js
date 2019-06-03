@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Navbar from '../components/navbar/navbar';
+import SearchBar from '../components/searchbar/searchbar';
 
 class Anime extends Component {
     constructor() {
@@ -11,7 +12,8 @@ class Anime extends Component {
         return (
             <div>
                 <Navbar/>
-                Anime
+                <h1>Anime</h1>
+                <SearchBar/>
             </div>
         )
     }
