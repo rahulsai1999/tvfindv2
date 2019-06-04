@@ -8,12 +8,12 @@ class Pagin extends Component {
       <div>
         <nav aria-label="Page navigation example">
           <ul className="pagination justify-content-center">
-            <li className="page-item">
-              <a className="page-link" onClick={previous}>Previous</a>
+            <li className="page-item" onClick={previous}>
+              <div className="page-link" onClick={previous}>Previous</div>
             </li>
-            <li className="page-item"><a className="page-link">{page}</a></li>
+            <li className="page-item"><div className="page-link">{page}</div></li>
             <li className="page-item">
-              <a className="page-link" onClick={next}>Next</a>
+              <div className="page-link" onClick={next}>Next</div>
             </li>
           </ul>
         </nav>
