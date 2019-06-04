@@ -2,23 +2,45 @@ import React, { Component } from 'react';
 import Navbar from '../components/navbar/navbar';
 import SearchBar from '../components/searchbar/searchbar';
 import DataCard from '../components/datacard/datacard';
+import Pagin from '../components/pagination/pagination';
 import { Spinner } from 'react-bootstrap';
 import Axios from 'axios';
 
 class Movie extends Component {
     constructor() {
         super();
-        this.state = { data: {}, loading: true }
+        this.state = { data: {}, loading: true ,page:1 }
     }
 
     componentDidMount() {
-        Axios.get('https://tv-v2.api-fetch.website/movies/1').then((response) => {
+        const {page}=this.state;
+        Axios.get(`https://tv-v2.api-fetch.website/movies/${page}`).then((response) => {
             this.setState({ data: response.data, loading: false });
-            console.log(response.data)
         }
         ).catch((err) => {
             console.log(err);
         })
+    }
+
+    componentDidUpdate(){
+        const {page}=this.state;
+        Axios.get(`https://tv-v2.api-fetch.website/movies/${page}`).then((response) => {
+            this.setState({ data: response.data, loading: false });
+        }
+        ).catch((err) => {
+            console.log(err);
+        })
+    }
+
+    incpage=()=>{
+        const {page}=this.state;
+        this.setState({loading:true,page:page+1});
+    }
+    
+    decpage=()=>{
+        const {page}=this.state;
+        if(page!=1)
+        this.setState({loading:true,page:page-1});
     }
 
     isLoadingorComponent = () => {
@@ -37,11 +59,13 @@ class Movie extends Component {
     }
 
     render() {
+        const {page}=this.state;
         return (
             <div>
                 <Navbar />
                 <h1 style={{textAlign:'center'}}>Movie</h1>
                 <SearchBar />
+                <Pagin previous={this.decpage} next={this.incpage} page={page}/>
                 <div className="container">
                     {this.isLoadingorComponent()}
                 </div>
