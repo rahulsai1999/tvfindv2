@@ -17,7 +17,11 @@ class DataCard extends Component {
               <img
                 className="datacard-img"
                 alt="poster"
-                src={data["Poster"]==="N/A"?"https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg":data["Poster"]}
+                src={
+                  data["Poster"] === "N/A"
+                    ? "https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg"
+                    : data["Poster"]
+                }
               />
             </div>
             <div className="col">
@@ -33,22 +37,20 @@ class DataCard extends Component {
       );
     } else {
       return (
-        <div className="datacard">
-          <div className="row">
-            <div className="col">
-              <img
-                className="datacard-img"
-                alt="poster"
-                src={data.images.poster}
-              />
+        <div className="card">
+          <div className="poster">
+            <img src={data.images.poster} alt="poster"/>
+          </div>
+          <div className="details">
+            <h2>{data.title}</h2><span>{data.year}</span>
+            <div className="rating">
+
             </div>
-            <div className="col">
-              <div className="row">
-                <h5>{data.title}</h5>
-              </div>
-              <div className="row">
-                <h6>{data.year}</h6>
-              </div>
+            <div className="tags">
+
+            </div>
+            <div className="info">
+              <p>{data.synopsis}</p>
             </div>
           </div>
         </div>
