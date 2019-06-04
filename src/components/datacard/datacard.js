@@ -41,7 +41,7 @@ class DataCard extends Component {
             <h5 className="title">{data.title} ({data.year})</h5>
             <br/>
             <div className="info">
-              <p>{data.synopsis.substring(0,165)+"..."}</p>
+              {/* <p>{data.synopsis.substring(0,165)+"..."}</p> */}
             </div>
           </div>
         </div>

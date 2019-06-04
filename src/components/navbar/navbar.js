@@ -7,7 +7,6 @@ class Navbar extends Component {
         return (
             <div>
                 <div className="nav-logo">
-                <p>TV FIND</p>
                 </div>
                 <div className="nav-elements">
                     <a className="btn btn-primary" href="/">Home <MdHome /></a>
