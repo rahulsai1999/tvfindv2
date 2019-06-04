@@ -11,9 +11,8 @@ class DataCard extends Component {
     const { data } = this.props;
     if (data["Type"]) {
       return (
-        <div className="datacard">
-          <div className="row">
-            <div className="col">
+        <div className="card">
+          <div className="poster">
               <img
                 className="datacard-img"
                 alt="poster"
@@ -23,13 +22,10 @@ class DataCard extends Component {
                     : data["Poster"]
                 }
               />
-            </div>
-            <div className="col">
-              <div className="row">
-                <h5>{data["Title"]}</h5>
-              </div>
-              <div className="row">
-                <h6>{data["Year"]}</h6>
+            <div className="details">
+                <h5>{data["Title"]}({data["Year"]})</h5>
+              <div className="info">
+                
               </div>
             </div>
           </div>
@@ -42,15 +38,10 @@ class DataCard extends Component {
             <img src={data.images.poster} alt="poster"/>
           </div>
           <div className="details">
-            <h2>{data.title}</h2><span>{data.year}</span>
-            <div className="rating">
-
-            </div>
-            <div className="tags">
-
-            </div>
+            <h5 className="title">{data.title} ({data.year})</h5>
+            <br/>
             <div className="info">
-              <p>{data.synopsis}</p>
+              <p>{data.synopsis.substring(0,165)+"..."}</p>
             </div>
           </div>
         </div>

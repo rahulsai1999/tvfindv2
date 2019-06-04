@@ -9,6 +9,11 @@
     box-shadow: 0 5px 10px rgba(0,0,0, 0.5);
     width: 250px;
     height: 350px;
+    cursor: pointer;
+  }
+
+  .title{
+    margin-bottom: 30px !important;
   }
   
   .card .poster {
