@@ -17,7 +17,7 @@ class DataCard extends Component {
               <img
                 className="datacard-img"
                 alt="poster"
-                src={data["Poster"]}
+                src={data["Poster"]==="N/A"?"https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg":data["Poster"]}
               />
             </div>
             <div className="col">

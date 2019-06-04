@@ -27,6 +27,7 @@ class Movie extends Component {
   };
 
   omdb = query => {
+    query=query.trim();
     Axios.get(`https://www.omdbapi.com/?s=${query}&type=movie&apikey=db9fe0c`)
       .then(response => {
         this.setState({ data: response.data["Search"], loading: false });
