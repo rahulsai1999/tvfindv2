@@ -12,36 +12,46 @@ class Movie extends Component {
     this.state = { data: {}, loading: true, page: 1 };
   }
 
+  popcorn = page => {
+    Axios.get(`https://tv-v2.api-fetch.website/movies/${page}`)
+      .then(response => {
+        this.setState({ data: response.data, loading: false });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
+  omdb = query => {
+      Axios.get(`https://www.omdbapi.com/?s=${query}&type=movie&apikey=db9fe0c`)
+      .then(response => {
+        this.setState({ data: response.data, loading: false });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
   componentDidMount() {
     const { page } = this.state;
-    Axios.get(`https://tv-v2.api-fetch.website/movies/${page}`)
-      .then(response => {
-        this.setState({ data: response.data, loading: false });
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    this.popcorn(page);
   }
 
-  componentDidUpdate() {
-    const { page } = this.state;
-    Axios.get(`https://tv-v2.api-fetch.website/movies/${page}`)
-      .then(response => {
-        this.setState({ data: response.data, loading: false });
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  }
+//   componentDidUpdate() {
+//     const { page } = this.state;
+//     this.popcorn(page);
+//   }
 
   incpage = () => {
     const { page } = this.state;
     this.setState({ loading: true, page: page + 1 });
+    this.popcorn(page+1);
   };
 
   decpage = () => {
     const { page } = this.state;
-    if (page != 1) this.setState({ loading: true, page: page - 1 });
+    if (page>1 ) this.setState({ loading: true, page: page - 1 });
+    this.popcorn(page-1);
   };
 
   isLoadingorComponent = () => {
