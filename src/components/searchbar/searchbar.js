@@ -12,18 +12,17 @@ class SearchBar extends Component {
     const { textch, submitf } = this.props;
     return (
       <div>
-        <form className="form-inline">
+        <div className="form-inline">
           <div className="container">
             <input type="text" className="form-control" onChange={textch} />
             <button
-              type="submit"
               className="search-btn btn btn-success"
               onClick={submitf}
             >
               Search <MdSearch />
             </button>
           </div>
-        </form>
+        </div>
       </div>
     );
   }

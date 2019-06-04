@@ -9,7 +9,11 @@ import Axios from "axios";
 class Movie extends Component {
   constructor() {
     super();
-    this.state = { data: {}, loading: true, page: 1 };
+    this.state = { search: "", data: {}, loading: true, page: 1 };
+  }
+
+  textch=event=>{
+      this.setState({search:event.target.value});
   }
 
   popcorn = page => {
@@ -23,9 +27,10 @@ class Movie extends Component {
   };
 
   omdb = query => {
-      Axios.get(`https://www.omdbapi.com/?s=${query}&type=movie&apikey=db9fe0c`)
+    Axios.get(`https://www.omdbapi.com/?s=${query}&type=movie&apikey=db9fe0c`)
       .then(response => {
-        this.setState({ data: response.data, loading: false });
+        this.setState({ data: response.data["Search"], loading: false });
+        console.log(this.state.data);
       })
       .catch(err => {
         console.log(err);
@@ -37,22 +42,22 @@ class Movie extends Component {
     this.popcorn(page);
   }
 
-//   componentDidUpdate() {
-//     const { page } = this.state;
-//     this.popcorn(page);
-//   }
-
   incpage = () => {
     const { page } = this.state;
     this.setState({ loading: true, page: page + 1 });
-    this.popcorn(page+1);
+    this.popcorn(page + 1);
   };
 
   decpage = () => {
     const { page } = this.state;
-    if (page>1 ) this.setState({ loading: true, page: page - 1 });
-    this.popcorn(page-1);
+    if (page > 1) this.setState({ loading: true, page: page - 1 });
+    this.popcorn(page - 1);
   };
+
+  submitf = () =>{
+      console.log("triggered");
+      this.omdb(this.state.search);
+  }
 
   isLoadingorComponent = () => {
     if (this.state.loading) {
@@ -79,7 +84,7 @@ class Movie extends Component {
       <div>
         <Navbar />
         <h1 style={{ textAlign: "center" }}>Movie</h1>
-        <SearchBar />
+        <SearchBar textch={this.textch} submitf={this.submitf} />
         <Pagin previous={this.decpage} next={this.incpage} page={page} />
         <div className="container">{this.isLoadingorComponent()}</div>
       </div>
